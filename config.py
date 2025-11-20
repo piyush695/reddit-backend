@@ -1,15 +1,8 @@
-# config.py
-from pymongo import MongoClient
 import os
+from pymongo import MongoClient
 
-# Use your Atlas URI
-MONGO_URI = "mongodb+srv://reddituser:23172410@cluster0.drr2ppd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-
-# Name of your database
+MONGO_URI = os.environ["MONGO_URI"]    # Secret Manager injects this
 DB_NAME = "reddit_data"
 
-# Create client
 client = MongoClient(MONGO_URI)
-
-# Connect to database
 db = client[DB_NAME]
